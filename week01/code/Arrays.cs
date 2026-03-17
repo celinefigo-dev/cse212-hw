@@ -13,8 +13,23 @@ public static class Arrays
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
-        return []; // replace this return statement with your own
+        // Set a for loop that lasts until a counter is equal to the length
+        // Keep track of what the current number is by initializing it outside the loop
+        // In each loop add the number to a results list 
+        // Add the number to current number
+
+        double currentNumb = number;
+        List<double> results = new();
+
+        for (int i = 0; i < length; i++)
+        {
+            results.Add(currentNumb);
+            currentNumb += number;
+        }
+
+        return results.ToArray();
     }
+
 
     /// <summary>
     /// Rotate the 'data' to the right by the 'amount'.  For example, if the data is 
@@ -23,11 +38,46 @@ public static class Arrays
     ///
     /// Because a list is dynamic, this function will modify the existing data list rather than returning a new list.
     /// </summary>
+    
+ 
     public static void RotateListRight(List<int> data, int amount)
     {
         // TODO Problem 2 Start
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
+        // I created lists to store split parts of the original list
+        // elements that stayed at the back and move to the front
+        // l used data clear to clear the original list
+        // add all elements from the result list back into the original list
+        List<int> left = new();
+        List<int> right = new();
+
+        List<int> results = new();
+
+        for (int i = 0; i < data.Count; i++)
+        {
+            if (i >= data.Count - amount)
+            {
+                right.Add(data[i]);
+            }
+            else
+            {
+                left.Add(data[i]);
+            }
+        }
+
+        foreach (int num in right)
+        {
+            results.Add(num);
+        }
+
+        foreach (int num in left)
+        {
+            results.Add(num);
+        }
+
+        data.Clear();
+        data.AddRange(results);
     }
 }

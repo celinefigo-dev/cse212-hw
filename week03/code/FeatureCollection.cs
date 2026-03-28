@@ -13,5 +13,5 @@ public class Feature
 public class Properties
 {
     public string Place { get; set; }
-    public double? Mag { get; set; } // ✅ Nullable to handle null values
+    public double? Mag { get; set; }
 }
